@@ -958,39 +958,3 @@ BEGIN
 END$$
 
 DELIMITER ;
-
--- TCL
-use mysql;
-select * from user; -- mostrar todos los usuarios
-CREATE USER 'administrador1'@'localhost' identified by 'abm123'; -- creacion de administrador usuario con pass
-CREATE USER 'teamleader1'@'localhost' identified by '0123tl'; -- creacion de teamleader usuario con pass
-CREATE USER 'operador1'@'localhost' identified by 'lrodriguez'; -- creacion de operador usuario con pass
-
-GRANT ALL ON *.* TO 'administrador1'@'localhost'; -- dar todos los permisos
-FLUSH privileges;
-GRANT SELECT, INSERT, UPDATE, DELETE ON call_center_db.categorias TO 'teamleader1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.comentarios TO 'teamleader1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.contactos TO 'teamleader1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.log_empresa TO 'teamleader1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.log_ticket TO 'teamleader1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.operadores TO 'teamleader1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.telefonos TO 'teamleader1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.tickets TO 'teamleader1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.comentarios TO 'operador1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.contactos TO 'operador1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.operadores TO 'operador1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.telefonos TO 'operador1'@'localhost';
-FLUSH privileges;
-GRANT SELECT,INSERT, UPDATE, DELETE ON call_center_db.tickets TO 'operador1'@'localhost';
-FLUSH privileges;
